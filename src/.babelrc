@@ -1,0 +1,20 @@
+{
+
+  "presets": [
+    "react",
+    ["env", {
+      "targets": {
+        "browsers": ["last 2 versions", "> 2%"]
+      },
+      "modules": false,
+      "loose": true
+    }]
+  ],
+
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-decorators-legacy",
+    "transform-object-rest-spread"
+  ]
+
+}
