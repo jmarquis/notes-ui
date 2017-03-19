@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const logLevels = {
   error: 0,
   warn: 1,
@@ -5,7 +7,7 @@ const logLevels = {
   log: 3
 }
 
-let logLevel = 3
+const logLevel = 3
 
 export function error(...args) {
   if (logLevel >= logLevels.error) console.error(...args)

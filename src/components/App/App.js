@@ -1,20 +1,21 @@
 import React, { Component } from "react"
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
-import { init } from "../../etc/firebase"
+import auth from "etc/auth"
 
 import Loading from "Loading"
 import Authentication from "Authentication"
 import Workspace from "Workspace"
 
-// firebase
 // redux
 // react-dnd
 
 export default class App extends Component {
 
   componentDidMount() {
-    setTimeout(init, 2000)
+    setTimeout(() => {
+      console.log(auth)
+    }, 2000)
   }
 
   render() {
