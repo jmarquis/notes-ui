@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
+import React, { Component, PropTypes } from "react"
+import { Switch, Route, withRouter } from "react-router-dom"
 
 import auth from "etc/auth"
 
@@ -10,25 +10,31 @@ import Workspace from "Workspace"
 // redux
 // react-dnd
 
+@withRouter
 export default class App extends Component {
 
+  static propTypes = {
+    history: PropTypes.object
+  }
+
   componentDidMount() {
+    const { history } = this.props
     setTimeout(() => {
-      console.log(auth)
-    }, 2000)
+      if (!auth.user) {
+        history.push("/auth")
+      }
+    }, 500)
   }
 
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Switch>
-            <Route path="/auth" component={Authentication} />
-            <Route path="/:workspaceId" component={Workspace} />
-            <Route path="/" component={Loading} />
-          </Switch>
-        </div>
-      </Router>
+      <div className="App">
+        <Switch>
+          <Route path="/auth" component={Authentication} />
+          <Route path="/:workspaceId" component={Workspace} />
+          <Route path="/" component={Loading} />
+        </Switch>
+      </div>
     )
   }
 

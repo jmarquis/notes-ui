@@ -1,6 +1,5 @@
 import pkg from "./package.json"
 import path from "path"
-import webpack from "webpack"
 
 const src = path.join(__dirname, "src")
 
