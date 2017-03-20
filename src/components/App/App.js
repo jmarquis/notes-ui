@@ -1,3 +1,5 @@
+import "./App.less"
+
 import React, { Component, PropTypes } from "react"
 import { Switch, Route, withRouter } from "react-router-dom"
 
