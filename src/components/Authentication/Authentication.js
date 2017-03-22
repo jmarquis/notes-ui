@@ -3,7 +3,7 @@ import "./Authentication.less"
 import React, { Component } from "react"
 import autobind from "autobind-decorator"
 
-import { signIn } from "etc/auth"
+import { signIn } from "actions/user"
 
 export default class Authentication extends Component {
 
