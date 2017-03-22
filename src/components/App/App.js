@@ -17,7 +17,7 @@ import Workspace from "Workspace"
 @connect(state => {
   const { user } = state
   return { user }
-})
+}, null, null, { pure: false })
 @withRouter
 export default class App extends Component {
 
