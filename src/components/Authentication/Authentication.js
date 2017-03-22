@@ -1,15 +1,35 @@
 import "./Authentication.less"
 
-import React, { Component } from "react"
+import React, { Component, PropTypes } from "react"
 import autobind from "autobind-decorator"
+import { connect } from "react-redux"
+import { withRouter } from "react-router"
 
+import { auth } from "etc/firebase"
 import { signIn } from "actions/user"
 
+@connect(state => {
+  const { user } = state
+  return { user }
+})
+@withRouter
 export default class Authentication extends Component {
+
+  static propTypes = {
+    user: PropTypes.any,
+    history: PropTypes.any
+  }
 
   state = {
     email: "",
     password: ""
+  }
+
+  componentDidUpdate() {
+    const { user, history } = this.props
+    if (user) {
+      history.push("/")
+    }
   }
 
   render() {
