@@ -4,7 +4,7 @@ import React from "react"
 import { render } from "react-dom"
 import { createStore, combineReducers, applyMiddleware } from "redux"
 import thunk from "redux-thunk"
-import createLogger from "redux-logger"
+import { createLogger } from "redux-logger"
 
 import { AppContainer } from "react-hot-loader"
 import { Provider } from "react-redux"
