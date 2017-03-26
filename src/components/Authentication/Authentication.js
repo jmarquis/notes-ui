@@ -3,16 +3,15 @@ import "./Authentication.less"
 import React, { Component, PropTypes } from "react"
 import autobind from "autobind-decorator"
 import { connect } from "react-redux"
-import { withRouter } from "react-router"
+import { Route, Redirect } from "react-router-dom"
 
-import { auth } from "etc/firebase"
-import { signIn } from "actions/user"
+import { signIn, signOut } from "actions/user"
+import { log } from "etc/logger"
 
 @connect(state => {
   const { user } = state
   return { user }
 })
-@withRouter
 export default class Authentication extends Component {
 
   static propTypes = {
@@ -25,16 +24,21 @@ export default class Authentication extends Component {
     password: ""
   }
 
-  componentDidUpdate() {
-    const { user, history } = this.props
-    if (user) {
-      history.push("/")
-    }
-  }
-
   render() {
+    const { user } = this.props
+
+    if (user) return <Redirect to="/" />
+
     return (
       <section className="Authentication">
+        <Route
+          exact
+          path="/auth/signout"
+          render={() => {
+            signOut().then(() => log("sign out successful"))
+            return <Redirect to="/" />
+          }}
+        />
         <form onSubmit={this.handleSubmit}>
           <input type="text" value={this.state.email} onChange={this.handleEmailChange} />
           <input type="password" value={this.state.password} onChange={this.handlePasswordChange} />

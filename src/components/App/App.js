@@ -12,7 +12,7 @@ import Loading from "Loading"
 import Authentication from "Authentication"
 import Workspace from "Workspace"
 
-// react-dnd
+// TODO: react-dnd
 
 @connect(state => {
   const { user } = state
@@ -25,27 +25,6 @@ export default class App extends Component {
     history: PropTypes.object,
     user: PropTypes.any,
     dispatch: PropTypes.func
-  }
-
-  componentDidMount() {
-
-    const { history, user, dispatch } = this.props
-
-    // set up auth state listener
-    auth.onAuthStateChanged(newUser => {
-      log("user state change:", newUser)
-      dispatch(updateUser(newUser))
-    })
-
-    // show auth page if not signed in
-    setTimeout(() => {
-      log("checking for auth state")
-      if (!user) {
-        log("redirecting to auth page")
-        history.push("/auth")
-      }
-    }, 500)
-
   }
 
   render() {

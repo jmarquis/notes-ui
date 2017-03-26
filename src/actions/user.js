@@ -14,3 +14,8 @@ export function signIn(email, password) {
     log("firebase authentication error:", error)
   })
 }
+
+export function signOut() {
+  log("signing out")
+  return auth.signOut()
+}
