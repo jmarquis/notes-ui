@@ -12,6 +12,7 @@ import Form from "Form"
 import Field from "Field"
 import Button from "Button"
 import TextInput from "TextInput"
+import FieldGroup from "FieldGroup"
 
 @connect(state => {
   const { user } = state
@@ -45,12 +46,14 @@ export default class Authentication extends Component {
           }}
         />
         <Form onSubmit={this.handleSubmit}>
-          <Field label="Email">
-            <TextInput value={this.state.email} onChange={this.handleEmailChange} />
-          </Field>
-          <Field label="Password">
-            <TextInput type="password" value={this.state.password} onChange={this.handlePasswordChange} />
-          </Field>
+          <FieldGroup>
+            <Field label="Email">
+              <TextInput value={this.state.email} onChange={this.handleEmailChange} />
+            </Field>
+            <Field label="Password">
+              <TextInput type="password" value={this.state.password} onChange={this.handlePasswordChange} />
+            </Field>
+          </FieldGroup>
           <Button type="submit" size="large" text="Sign in" />
         </Form>
       </section>
