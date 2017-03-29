@@ -8,6 +8,11 @@ import { Route, Redirect } from "react-router-dom"
 import { signIn, signOut } from "actions/user"
 import { log } from "etc/logger"
 
+import Form from "Form"
+import Field from "Field"
+import Button from "Button"
+import TextInput from "TextInput"
+
 @connect(state => {
   const { user } = state
   return { user }
@@ -39,11 +44,15 @@ export default class Authentication extends Component {
             return <Redirect to="/" />
           }}
         />
-        <form onSubmit={this.handleSubmit}>
-          <input type="text" value={this.state.email} onChange={this.handleEmailChange} />
-          <input type="password" value={this.state.password} onChange={this.handlePasswordChange} />
-          <input type="submit" value="Sign in" />
-        </form>
+        <Form onSubmit={this.handleSubmit}>
+          <Field label="Email">
+            <TextInput value={this.state.email} onChange={this.handleEmailChange} />
+          </Field>
+          <Field label="Password">
+            <TextInput type="password" value={this.state.password} onChange={this.handlePasswordChange} />
+          </Field>
+          <Button type="submit" size="large" text="Sign in" />
+        </Form>
       </section>
     )
   }

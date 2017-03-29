@@ -74,7 +74,14 @@ export default {
               }
             }
           },
-          "less-loader"
+          {
+            loader: "less-loader",
+            options: {
+              includePaths: [
+                "src/styles/"
+              ]
+            }
+          }
         ]
       },
 

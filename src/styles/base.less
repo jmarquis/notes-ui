@@ -1,6 +1,19 @@
 @import (inline) "~normalize.css/normalize.css";
+@import "~colors";
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  outline: 0;
+}
 
 html,
 body {
+  box-sizing: border-box;
   overflow: hidden;
+  font: 16px "open-sans", sans-serif;
+  color: @rhino;
 }

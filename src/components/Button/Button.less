@@ -1,0 +1,29 @@
+@import "~colors";
+@import "~typography";
+
+.Button {
+  appearance: none;
+  background-color: @azure;
+  border: 0;
+  line-height: 1;
+  height: 40px;
+  color: @alabaster;
+  font: 12px @sans-font;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: @azure-light;
+  }
+
+  &:active {
+    background-color: @azure-dark;
+  }
+
+  &.large {
+    height: 60px;
+  }
+}
