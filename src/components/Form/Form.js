@@ -9,9 +9,9 @@ export default class Form extends Component {
   }
 
   render() {
-    const { children } = this.props
+    const { children, ...otherProps } = this.props
     return (
-      <form className="Form">
+      <form className="Form" {...otherProps}>
         {children}
       </form>
     )

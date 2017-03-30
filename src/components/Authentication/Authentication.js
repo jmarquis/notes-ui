@@ -36,7 +36,7 @@ export default class Authentication extends Component {
     if (user) return <Redirect to="/" />
 
     return (
-      <section className="Authentication">
+      <section className="Authentication dark-bg">
         <Route
           exact
           path="/auth/signout"
