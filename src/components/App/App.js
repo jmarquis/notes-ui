@@ -10,7 +10,7 @@ import { updateUser } from "actions/user"
 
 import Loading from "Loading"
 import Authentication from "Authentication"
-import Workspace from "Workspace"
+import BaseLayout from "BaseLayout"
 
 // TODO: react-dnd
 
@@ -31,9 +31,9 @@ export default class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route path="/auth" component={Authentication} />
-          <Route path="/:workspaceId" component={Workspace} />
-          <Route path="/" component={Loading} />
+          <Route exact path="/" component={Loading} />
+          <Route exact path="/auth" component={Authentication} />
+          <Route component={BaseLayout} />
         </Switch>
       </div>
     )
